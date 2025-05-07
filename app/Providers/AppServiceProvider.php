@@ -25,12 +25,5 @@ class AppServiceProvider extends ServiceProvider
     {
         $locale = Session::get('locale', config('app.locale'));
         App::setLocale($locale);
-
-        Route::middlewareGroup('web', [
-            \Illuminate\Session\Middleware\StartSession::class,
-            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            SetLocale::class, // Add the SetLocale middleware here
-        ]);
     }
 }
